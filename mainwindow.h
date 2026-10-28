@@ -25,7 +25,16 @@ private slots:
     void calcEqual();
 
     // 功能按钮
+    void clearAll();
+    void clearEntry();
+    void backspace();
+    void toggleSign();
+    void calcPercent();
+    void calcReciprocal();
+    void calcSquare();
+    void calcSqrt();
 
+    void updateUI();
 
 protected:
     void keyPressEvent(QKeyEvent *event) override;
@@ -33,6 +42,11 @@ protected:
 private:
     Ui::MainWindow *ui;
 
-
+    QString m_expr;
+    QString m_currentNum;
+    double  m_lastVal = 0.0;
+    QString m_op;
+    bool m_waitNewOperand = true;
+    bool m_hasError = false;
 };
 #endif // MAINWINDOW_H
