@@ -188,4 +188,58 @@ void MainWindow::toggleSign()
     updateUI();
 }
 
+void MainWindow::calcPercent()
+{
+    if(m_hasError) return;
+    double v = m_currentNum.toDouble();
+    v = v / 100.0;
+    m_currentNum = QString::number(v, 'g', 12);
+    m_waitNewOperand = true;
+    updateUI();
+}
+
+void MainWindow::calcReciprocal()
+{
+    if(m_hasError) return;
+    double v = m_currentNum.toDouble();
+    if(fabs(v) < 1e-12)
+    {
+        m_hasError = true;
+        updateUI();
+        return;
+    }
+    v = 1.0 / v;
+    m_currentNum = QString::number(v, 'g', 12);
+    m_waitNewOperand = true;
+    updateUI();
+}
+
+void MainWindow::calcSquare()
+{
+    if(m_hasError) return;
+    double v = m_currentNum.toDouble();
+    v = v * v;
+    m_currentNum = QString::number(v, 'g', 12);
+    m_waitNewOperand = true;
+    updateUI();
+}
+
+void MainWindow::calcSqrt()
+{
+    if(m_hasError) return;
+    double v = m_currentNum.toDouble();
+    if(v < 0)
+    {
+        m_hasError = true;
+        updateUI();
+        return;
+    }
+    v = sqrt(v);
+    m_currentNum = QString::number(v, 'g', 12);
+    m_waitNewOperand = true;
+    updateUI();
+}
+
+
+
 
