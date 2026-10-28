@@ -14,46 +14,9 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">this-&gt;setStyleSheet(R&quot;(
-QMainWindow{
-    background-color: #ececec;
-}
-QLabel#lab_display{
-    background-color:#222222;
-    color:white;
-    font-size:32px;
-    padding:12px;
-    border-radius:8px;
-    text-align:right;
-}
-QPushButton{
-    font-size:18px;
-    border-radius:8px;
-    border:none;
-}
-QPushButton#btn_0,#btn_1,#btn_2,#btn_3,#btn_4,#btn_5,#btn_6,#btn_7,#btn_8,#btn_9,#btn_dot{
-    background-color:#dddddd;
-    color:#222222;
-}
-QPushButton#btn_0:hover,#btn_1:hover,#btn_2:hover,#btn_3:hover,#btn_4:hover,#btn_5:hover,#btn_6:hover,#btn_7:hover,#btn_8:hover,#btn_9:hover,#btn_dot:hover{
-    background-color:#cccccc;
-}
-QPushButton#btn_add,#btn_sub,#btn_mul,#btn_div,#btn_eq{
-    background-color:#ff9500;
-    color:white;
-}
-QPushButton#btn_add:hover,#btn_sub:hover,#btn_mul:hover,#btn_div:hover,#btn_eq:hover{
-    background-color:#e68500;
-}
-QPushButton#btn_clear{
-    background-color:#ff3b30;
-    color:white;
-}
-QPushButton#btn_clear:hover{
-    background-color:#e03026;
-}
-)&quot;);
-</string>
+   <string notr="true">QFile qssFile(&quot;:/style.qss&quot;);
+qssFile.open(QFile::ReadOnly);
+this-&gt;setStyleSheet(qssFile.readAll());</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="styleSheet">
