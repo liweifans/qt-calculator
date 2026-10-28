@@ -240,6 +240,23 @@ void MainWindow::calcSqrt()
     updateUI();
 }
 
-
+void MainWindow::keyPressEvent(QKeyEvent *event)
+{
+    int key = event->key();
+    if (key >= Qt::Key_0 && key <= Qt::Key_9)
+    {
+        inputDigit(QString::number(key - Qt::Key_0));
+    }
+    else if(key == Qt::Key_Plus) inputOperator("+");
+    else if(key == Qt::Key_Minus) inputOperator("-");
+    else if(key == Qt::Key_Asterisk) inputOperator("*");
+    else if(key == Qt::Key_Slash) inputOperator("/");
+    else if(key == Qt::Key_Period) inputDot();
+    else if(key == Qt::Key_Enter || key == Qt::Key_Return) calcEqual();
+    else if(key == Qt::Key_Backspace) backspace();
+    else if(key == Qt::Key_Escape) clearAll();
+    else if(key == Qt::Key_Percent) calcPercent();
+    else QWidget::keyPressEvent(event);
+}
 
 
